@@ -1,0 +1,333 @@
+/* Real Paper Texture & Handwritten Edition with Animated Pencil Cursor */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=Architects+Daughter&family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-desk: #F5F2EB;
+  --bg-paper: #FDFBF7;
+  --bg-paper-alt: #F8F5EE;
+  --text-ink: #1E293B;
+  --text-pencil: #334155;
+  --text-pencil-light: #64748B;
+  --border-paper: #E5DFD5;
+  --border-paper-dark: #D4CBC0;
+  --accent-blue: #2563EB;
+  --accent-ink: #0F172A;
+  --accent-red: #DC2626;
+  --accent-green: #059669;
+}
+
+/* ========================================================
+   PENCIL CURSOR STYLING
+======================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* Custom High-Res Pencil Cursor (Tip positioned at 2, 30) */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-45 16 16)'%3E%3Crect x='13' y='1' width='6' height='4' rx='1' fill='%23F472B6' stroke='%23DB2777' stroke-width='0.5'/%3E%3Crect x='13' y='5' width='6' height='2.5' fill='%23CBD5E1' stroke='%2394A3B8' stroke-width='0.5'/%3E%3Crect x='13' y='7.5' width='6' height='15' fill='%23FBBF24' stroke='%23D97706' stroke-width='0.5'/%3E%3Cline x1='15' y1='7.5' x2='15' y2='22.5' stroke='%23F59E0B' stroke-width='0.75'/%3E%3Cpolygon points='13,22.5 19,22.5 16,29' fill='%23FDE68A' stroke='%23D97706' stroke-width='0.5'/%3E%3Cpolygon points='15,26.5 17,26.5 16,30' fill='%231E293B'/%3E%3C/g%3E%3C/svg%3E") 2 30, auto !important;
+}
+
+/* Pointer cursor with writing angle on interactive elements */
+a, button, input[type="range"], select, textarea, input {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-35 16 16)'%3E%3Crect x='13' y='1' width='6' height='4' rx='1' fill='%23F472B6'/%3E%3Crect x='13' y='5' width='6' height='2.5' fill='%23CBD5E1'/%3E%3Crect x='13' y='7.5' width='6' height='15' fill='%23F59E0B'/%3E%3Cpolygon points='13,22.5 19,22.5 16,29' fill='%23FDE68A'/%3E%3Cpolygon points='15,26.5 17,26.5 16,30' fill='%230F172A'/%3E%3C/g%3E%3C/svg%3E") 2 30, pointer !important;
+}
+
+body {
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif;
+  font-size: 18px;
+  background-color: var(--bg-desk);
+  background-image: 
+    radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+  background-size: 24px 24px, 180px 180px;
+  color: var(--text-ink);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+/* ========================================================
+   HANDWRITTEN TYPOGRAPHY HIERARCHY
+======================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-ink);
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 2.3rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+}
+
+.font-mono {
+  font-family: 'Architects Daughter', 'JetBrains Mono', monospace;
+}
+
+/* ========================================================
+   REAL PAPER TEXTURE & PHYSICAL CARD CRAFTING
+======================================================== */
+.bento-card, .paper-card, .nav-surface, .paper-container {
+  background-color: var(--bg-paper);
+  background-image: 
+    /* Authentic paper fiber noise */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperFiber'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23fff' surfaceScale='1.1'%3E%3CfeDistantLight azimuth='60' elevation='50'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperFiber)' opacity='0.04'/%3E%3C/svg%3E");
+  border: 1px solid var(--border-paper);
+  border-radius: 18px;
+  box-shadow: 
+    0 1px 2px rgba(60, 50, 40, 0.05),
+    0 4px 12px rgba(60, 50, 40, 0.06),
+    0 16px 28px -8px rgba(60, 50, 40, 0.08),
+    inset 0 0 40px rgba(220, 210, 195, 0.15);
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Subtle physical paper lift and angle on hover */
+.bento-card:hover {
+  transform: translateY(-4px) rotate(-0.35deg);
+  border-color: #CBD5E1;
+  box-shadow: 
+    0 2px 4px rgba(60, 50, 40, 0.06),
+    0 12px 24px -4px rgba(60, 50, 40, 0.12),
+    0 24px 38px -12px rgba(60, 50, 40, 0.09),
+    inset 0 0 50px rgba(220, 210, 195, 0.2);
+}
+
+.bento-card:nth-child(even):hover {
+  transform: translateY(-4px) rotate(0.35deg);
+}
+
+/* Authentic Paper Notebook Ribbon or Tape Pin Accent */
+.paper-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 22px;
+  background: rgba(254, 240, 138, 0.65);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border-radius: 2px;
+}
+
+/* Header Navbar on Paper Surface */
+.nav-surface {
+  background-color: rgba(253, 251, 247, 0.96);
+  border: 1px solid var(--border-paper);
+  box-shadow: 0 2px 8px rgba(60, 50, 40, 0.06);
+}
+
+/* Handwritten Badges & Sticky Notes */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 8px;
+  background-color: #FEF9C3;
+  border: 1px solid #FDE047;
+  color: #854D0E;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transform: rotate(-0.5deg);
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  transform: scale(1.05) rotate(0.5deg);
+  background-color: #FEF08A;
+  color: #713F12;
+}
+
+/* Range Slider with Pencil Lead Styling */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #E2DDD5;
+  border: 1px solid #D5CEBE;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #F59E0B;
+  border: 3px solid #1E293B;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: transform 0.15s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #F59E0B;
+  border: 3px solid #1E293B;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* Playbook Tabs (Handwritten index card tabs) */
+.playbook-tab {
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: #FAF6EE;
+  border: 1px solid #DFD7C8;
+  color: #475569;
+}
+
+.playbook-tab.active {
+  background-color: #1E293B;
+  border-color: #1E293B;
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Skill Filter Buttons */
+.skill-filter-btn {
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #FAF6EE;
+  border: 1px solid #DFD7C8;
+  color: #475569;
+}
+
+.skill-filter-btn.active {
+  background-color: #2563EB;
+  border-color: #2563EB;
+  color: #FFFFFF;
+}
+
+/* Toast Message */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #FEF3C7;
+  border: 1px solid #F59E0B;
+  color: #78350F;
+  padding: 12px 22px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  font-weight: 700;
+  animation: slideInToast 0.25s ease forwards;
+}
+
+@keyframes slideInToast {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Code Snippet Blocks styled as Hand-Drawn Terminal Notes */
+.code-block {
+  font-family: 'Architects Daughter', monospace;
+  background-color: #1E293B;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  color: #93C5FD;
+  overflow-x: auto;
+}
+
+/* Custom Scrollbar styled as pencil lead */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #F3EFE6;
+}
+::-webkit-scrollbar-thumb {
+  background: #C7BEAF;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A09583;
+}
+
+/* ========================================================
+   FLOATING PENCIL TRAIL CANVAS
+======================================================== */
+#pencil-trail-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+/* PRINT MEDIA STYLES */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+    color: #0F172A !important;
+    font-size: 11pt;
+  }
+
+  header, nav, #simulator, #playbooks, .toast, footer, button, .slider, .badge, #pencil-trail-canvas {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  #hero, #about, #expertise, #experience, #certifications, #skills, #contact {
+    display: block !important;
+    page-break-inside: avoid;
+    margin-bottom: 20px !important;
+  }
+
+  img {
+    max-width: 130px !important;
+    height: auto !important;
+    border-radius: 12px !important;
+    border: 1px solid #CBD5E1 !important;
+  }
+
+  .bento-card, div[class*="bg-"] {
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+    border: 1px solid #CBD5E1 !important;
+    box-shadow: none !important;
+  }
+}
